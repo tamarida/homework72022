@@ -1,6 +1,6 @@
 var video;
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function(){
 	video = document.querySelector("#player1")
 	console.log("Good job opening the window")
 	video.autoplay = false;
@@ -17,7 +17,7 @@ document.querySelector("#play").addEventListener("click", function(){
 	video.play()
  });
 
-document.querySelector("#pause").addEventListener("click", function() {
+document.querySelector("#pause").addEventListener("click", function(){
 	console.log("Pause Video")
 	video.pause()
 });
@@ -59,4 +59,18 @@ document.querySelector('#mute').addEventListener("click", function(){
 		video.muted = true
 		this.innerHTML = "Unmuted"
 	}
-})
+});
+
+document.querySelector('#slider').addEventListener("click", function(){
+	console.log("The current value is ", this.value)
+	video.volume = this.value / 100
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%"
+});
+
+document.querySelector('#vintage').addEventListener("click", function(){
+	video.classList.add("oldSchool");
+});
+
+document.querySelector('#orig').addEventListener("click", function(){
+	video.classList.remove("oldSchool");
+});
